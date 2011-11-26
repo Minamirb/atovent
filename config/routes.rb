@@ -1,4 +1,6 @@
 Atovent::Application.routes.draw do
+  resources :pages
+
   resources :workshops
 
   # The priority is based upon order of creation:
