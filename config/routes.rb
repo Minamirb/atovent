@@ -1,4 +1,9 @@
 Atovent::Application.routes.draw do
+  resources :taggings
+  resources :tags
+  resources :logs
+  resources :pages
+  resources :workshops
   root :to => 'root#index'
 
   # The priority is based upon order of creation:

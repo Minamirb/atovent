@@ -1,0 +1,27 @@
+<h1>Listing workshops</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date on</th>
+    <th>Hashtag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @workshops.each do |workshop| %>
+  <tr>
+    <td><%= workshop.name %></td>
+    <td><%= workshop.date_on %></td>
+    <td><%= workshop.hashtag %></td>
+    <td><%= link_to 'Show', workshop %></td>
+    <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
+    <td><%= link_to 'Destroy', workshop, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Workshop', new_workshop_path %>
