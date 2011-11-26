@@ -1,4 +1,14 @@
 Atovent::Application.routes.draw do
+  resources :taggings
+
+  resources :tags
+
+  resources :logs
+
+  resources :pages
+
+  resources :workshops
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
