@@ -7,8 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="container">
+  <div id="header">
+    <div id="nav">
+      <ul>
+        <li class="active"><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Products</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    </div>
+    <h1>Atovent</h1>
+    <p>Help your leaning life.</p>
+  </div>
+  <div id="subheader">
+  </div>
+  <div id="content">
+    <%= yield %>
+  </div>
+  <div id="footer">
+    <p>A template by <a href="" title="">Sponge Project</a>, Courtesy <a href="http://www.openwebdesign.org" target="_blank">Open Web Design</a>, Thanks to 
+      <a href="http://www.chinatours.com/" target="_blank">China Travel Tours</a> &copy;2007</p>
+  </div>
 </body>
 </html>
