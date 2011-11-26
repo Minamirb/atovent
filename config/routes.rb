@@ -1,4 +1,6 @@
 Atovent::Application.routes.draw do
+  resources :tags
+
   resources :logs
 
   resources :pages
