@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126071614) do
+ActiveRecord::Schema.define(:version => 20111128153645) do
 
   create_table "logs", :force => true do |t|
     t.string   "content"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20111126071614) do
     t.integer  "workshop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "host"
   end
 
   create_table "taggings", :force => true do |t|

@@ -1,15 +1,57 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  title: MyString
-  url: MyString
-  type: 
-  log_id: 1
-  workshop_id: 1
-
-two:
-  title: MyString
-  url: MyString
-  type: 
-  log_id: 1
-  workshop_id: 1
+---
+http://t.co/X87gPn7b:
+  :title: ! 'USTREAM: JapanR: . '
+  :url: http://www.ustream.tv/channel/japanr
+  :host: www.ustream.tv
+  :type: ''
+http://t.co/qp7zQ6XJ:
+  :title: ! 'Japan.R #2 Introduction to R'
+  :url: http://www.slideshare.net/sakaue/japanr-2-introduction-to-r
+  :host: www.slideshare.net
+  :type: ''
+http://t.co/cbn6mHMX:
+  :title: ! '報道発表資料 : 2011年個人向け携帯電話サービス顧客満足度調査で2年連続第1位を受賞 | お知らせ | NTTドコモ'
+  :url: http://www.nttdocomo.co.jp/info/news_release/2011/11/24_00.html
+  :host: www.nttdocomo.co.jp
+  :type: HTML
+http://t.co/zIJGo6oF:
+  :title: 国内最大容量のバッテリーを搭載したスタミナスマホ「GS02」を12月1日に発売～下り最大14.4Mbpsに対応～｜報道発表資料｜イー・アクセス
+  :url: http://www.eaccess.net/cgi-bin/press.cgi?id=1189
+  :host: www.eaccess.net
+  :type: ''
+http://t.co/RE3VDFVV:
+  :title: Flashup 第12回発表資料 「最新のFlash3Dを使ってコンテンツを作ってみようAway3D入門講座」 «  orange-suzuki
+    blog
+  :url: http://orange-suzuki.com/blog/2011/11/flashup12_report/
+  :host: orange-suzuki.com
+  :type: ''
+http://t.co/4MKS336j:
+  :title: es_japanese.pdf
+  :url: http://www.worldenergyoutlook.org/docs/weo2011/es_japanese.pdf
+  :host: www.worldenergyoutlook.org
+  :type: PDF
+http://t.co/rlycjFzJ:
+  :title: 官方實用寫作參考資料 « Dutala Tortoise's Plateau
+  :url: http://doraemonserv.wordpress.com/2011/11/28/%e5%ae%98%e6%96%b9%e5%af%a6%e7%94%a8%e5%af%ab%e4%bd%9c%e5%8f%83%e8%80%83%e8%b3%87%e6%96%99/
+  :host: doraemonserv.wordpress.com
+  :type: ''
+http://t.co/CLbzel3E:
+  :title: 株式会社カネカ：ニュースリリース
+  :url: http://www.kaneka.co.jp/news/n111128.html
+  :host: www.kaneka.co.jp
+  :type: HTML
+http://t.co/ko3hlvGh:
+  :title: 【仕分けの正体】これが民主の本性…官僚笑い、国民泣く  - 政治・社会 - ZAKZAK
+  :url: http://www.zakzak.co.jp/society/politics/news/20111128/plt1111280831000-n1.htm
+  :host: www.zakzak.co.jp
+  :type: HTML
+http://t.co/CzYZfN5u:
+  :title: 全部見ればもう完璧！？イラスト初心者が上達のために見ておくべき資料まとめ | nanapi [ナナピ]
+  :url: http://nanapi.jp/2231/
+  :host: nanapi.jp
+  :type: ''
+http://t.co/XYherfH2:
+  :title: 楽天トラベル:元興寺（たびノート）
+  :url: http://kanko.travel.rakuten.co.jp/nara/spot/S29000286.html
+  :host: kanko.travel.rakuten.co.jp
+  :type: HTML
