@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126071614) do
+ActiveRecord::Schema.define(:version => 20111129133829) do
 
   create_table "logs", :force => true do |t|
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "text"
+    t.string   "id_str"
+    t.string   "user_id_str"
+    t.string   "user_icon_url"
+    t.string   "track"
   end
 
   create_table "pages", :force => true do |t|
