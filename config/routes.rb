@@ -4,7 +4,7 @@ Atovent::Application.routes.draw do
   resources :logs
   resources :pages
   resources :workshops
-  root :to => 'root#index'
+  root :to => 'workshops#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
