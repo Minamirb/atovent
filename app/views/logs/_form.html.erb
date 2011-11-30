@@ -1,4 +1,4 @@
-<%= form_for(@log) do |f| %>
+<%= form_for([@workshop, @log]) do |f| %>
   <% if @log.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@log.errors.count, "error") %> prohibited this log from being saved:</h2>
