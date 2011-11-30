@@ -1,50 +1,41 @@
 class LogsController < ApplicationController
-  # GET /logs
-  # GET /logs.json
   def index
-    @logs = Log.all
+    @logs = workshop.logs.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @logs }
     end
   end
 
-  # GET /logs/1
-  # GET /logs/1.json
   def show
-    @log = Log.find(params[:id])
+    @log = workshop.logs.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @log }
     end
   end
 
-  # GET /logs/new
-  # GET /logs/new.json
   def new
-    @log = Log.new
+    @log = workshop.logs.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @log }
     end
   end
 
-  # GET /logs/1/edit
   def edit
-    @log = Log.find(params[:id])
+    @log = workshop.logs.find(params[:id])
   end
 
-  # POST /logs
-  # POST /logs.json
   def create
-    @log = Log.new(params[:log])
+    @log = workshop.logs.new(params[:log])
 
     respond_to do |format|
       if @log.save
-        format.html { redirect_to @log, notice: 'Log was successfully created.' }
+        format.html { redirect_to [@workshop, @log], notice: 'workshop.logs was successfully created.' }
         format.json { render json: @log, status: :created, location: @log }
       else
         format.html { render action: "new" }
@@ -53,14 +44,12 @@ class LogsController < ApplicationController
     end
   end
 
-  # PUT /logs/1
-  # PUT /logs/1.json
   def update
-    @log = Log.find(params[:id])
+    @log = workshop.logs.find(params[:id])
 
     respond_to do |format|
       if @log.update_attributes(params[:log])
-        format.html { redirect_to @log, notice: 'Log was successfully updated.' }
+        format.html { redirect_to [@workshop, @log], notice: 'workshop.logs was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -69,15 +58,18 @@ class LogsController < ApplicationController
     end
   end
 
-  # DELETE /logs/1
-  # DELETE /logs/1.json
   def destroy
-    @log = Log.find(params[:id])
+    @log = workshop.logs.find(params[:id])
     @log.destroy
 
     respond_to do |format|
-      format.html { redirect_to logs_url }
+      format.html { redirect_to workshop_logs_url(workshop) }
       format.json { head :ok }
     end
+  end
+
+  private
+  def workshop
+    @workshop ||= Workshop.find(params[:workshop_id])
   end
 end

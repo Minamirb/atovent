@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130101549) do
+ActiveRecord::Schema.define(:version => 20111130110716) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -38,7 +38,10 @@ ActiveRecord::Schema.define(:version => 20111130101549) do
     t.string   "user_icon_url"
     t.string   "track"
     t.string   "user_screen_name"
+    t.integer  "workshop_id"
   end
+
+  add_index "logs", ["workshop_id"], :name => "index_logs_on_workshop_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title"

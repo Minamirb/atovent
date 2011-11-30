@@ -2,6 +2,9 @@
 
 one:
   content: MyString
+  workshop: one
 
 two:
   content: MyString
+  workshop: two
+
