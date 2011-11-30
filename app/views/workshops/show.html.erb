@@ -15,6 +15,7 @@
   <%= @workshop.hashtag %>
 </p>
 
+<h3><%= link_to 'Log', workshop_logs_path(@workshop) %></h3>
 
 <%= link_to 'Edit', edit_workshop_path(@workshop) %> |
 <%= link_to 'Back', workshops_path %>

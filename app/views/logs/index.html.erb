@@ -9,15 +9,16 @@
   </tr>
 
 <% @logs.each do |log| %>
+  <% workshop = log.workshop %>
   <tr>
     <td><%= log.content %></td>
-    <td><%= link_to 'Show', log %></td>
-    <td><%= link_to 'Edit', edit_log_path(log) %></td>
-    <td><%= link_to 'Destroy', log, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', [workshop, log] %></td>
+    <td><%= link_to 'Edit', edit_workshop_log_path(workshop, log) %></td>
+    <td><%= link_to 'Destroy', [workshop, log], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Log', new_log_path %>
+<%= link_to 'New Log', new_workshop_log_path(@workshop) %>
