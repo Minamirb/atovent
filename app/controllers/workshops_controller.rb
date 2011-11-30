@@ -62,8 +62,10 @@ class WorkshopsController < ApplicationController
 
     respond_to do |format|
       if @workshop.update_attributes(params[:workshop])
-        format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }
-        format.json { head :ok }
+        @workshop = Workshop.all
+
+        format.html { redirect_to workshops_url }
+        format.json { render json: @workshops }
       else
         format.html { render action: "edit" }
         format.json { render json: @workshop.errors, status: :unprocessable_entity }
