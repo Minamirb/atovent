@@ -44,8 +44,10 @@ class WorkshopsController < ApplicationController
 
     respond_to do |format|
       if @workshop.save
-        format.html { redirect_to @workshop, notice: 'Workshop was successfully created.' }
-        format.json { render json: @workshop, status: :created, location: @workshop }
+        @workshops = Workshop.all
+
+        format.html { redirect_to workshops_url }
+        format.json { render json: @workshops }
       else
         format.html { render action: "new" }
         format.json { render json: @workshop.errors, status: :unprocessable_entity }
