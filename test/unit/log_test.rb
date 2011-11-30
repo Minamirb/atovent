@@ -6,6 +6,7 @@ class LogTest < ActiveSupport::TestCase
     stub_request(:get, url).to_return(:body => fixture_text('minamirb_tweets'))
     assert_difference 'Log.count', +15 do
       Log.extract_tweets("#minamirb")
+      Delayed::Worker.new.run(Delayed::Job.last)
     end
     assert Log.last.user_screen_name.length > 0
   end
