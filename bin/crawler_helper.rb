@@ -8,3 +8,5 @@ require APP_PATH
 Rails.application.require_environment!
 
 require 'twitter/json_stream'
+OAUTH = HashWithIndifferentAccess.new(YAML.load_file(File.expand_path('../../config/oauth.yml', __FILE__)))
+
