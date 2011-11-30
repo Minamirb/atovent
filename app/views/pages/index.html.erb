@@ -1,17 +1,18 @@
 <h1>Listing pages</h1>
 
-<table>
+<br />
 <% @grouped_pages = @pages.group_by{|page| page.type} %>
 <% @grouped_pages.each do |type, pages| %>
+  <div class="pagetype">
   <% pages.each do |page| %>
-    <tr>
-      <td><%= link_to page.title, page.url %></td>
-      <td><%= page.host %></td>
-      <td><%= link_to 'remove', page, confirm: 'Are you sure?', method: :delete %></td>
-    </tr>
+    <div>
+      <div><%= link_to page.title, page.url %></div>
+      <div><%= page.host %></div>
+      <div><%= link_to 'remove', page, confirm: 'Are you sure?', method: :delete %></div>
+    </div>
   <% end %>
+  </div>
 <% end %>
-</table>
 
 <br />
 
