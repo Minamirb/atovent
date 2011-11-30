@@ -3,29 +3,18 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Url</th>
-    <th>Type</th>
-    <th>Log</th>
-    <th>Workshop</th>
-    <th></th>
-    <th></th>
+    <th>host</th>
     <th></th>
   </tr>
 
 <% @pages.each do |page| %>
   <tr>
-    <td><%= page.title %></td>
-    <td><%= page.url %></td>
-    <td><%= page.type %></td>
-    <td><%= page.log_id %></td>
-    <td><%= page.workshop_id %></td>
-    <td><%= link_to 'Show', page %></td>
-    <td><%= link_to 'Edit', edit_page_path(page) %></td>
-    <td><%= link_to 'Destroy', page, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to page.title, page.url %></td>
+    <td><%= page.host %></td>
+    <td><%= link_to 'remove', page, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Page', new_page_path %>
