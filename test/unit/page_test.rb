@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class PageTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "access to attributes" do
+    page = Page.new(:title => 'title'
 end
