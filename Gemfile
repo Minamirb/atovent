@@ -7,6 +7,8 @@ gem 'uric'
 
 # Gems used only for assets and not required
 # in production environments by default.
+gem 'delayed_job'
+gem 'rubytter'
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
@@ -25,4 +27,5 @@ end
 group :development do
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'webmock'
 end
