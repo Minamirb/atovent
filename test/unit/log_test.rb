@@ -7,5 +7,6 @@ class LogTest < ActiveSupport::TestCase
     assert_difference 'Log.count', +15 do
       Log.extract_tweets("#minamirb")
     end
+    assert Log.last.user_screen_name.length > 0
   end
 end
