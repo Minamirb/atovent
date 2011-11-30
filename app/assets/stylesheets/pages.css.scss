@@ -1,3 +1,41 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#page_host { 
+font-size: 10px; 
+margin-left: 3px;
+color: gray;
+} 
+
+#pages_area {
+  width: 80%;
+}
+
+#page_container {
+overflow: hidden;
+margin: 5px;
+background-color: lightYellow;
+} 
+
+#page_eyecatch {
+width: 90%;
+float: left;
+}
+
+#page_remove {
+width: 10%;
+float: right;
+}
+
+.pagetype {
+margin-top: 10px;
+}
+
+#page_title {
+margin-left: 3px;
+}
+
+.button_to {
+  margin-top: 7px;
+  margin-left: 5px;
+}

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
   setup do
-    @page = pages(:one)
+    @page = pages('http://t.co/X87gPn7b')
   end
 
   test "should get index" do

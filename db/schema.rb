@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20111130110716) do
     t.integer  "workshop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "host"
   end
 
   create_table "taggings", :force => true do |t|
