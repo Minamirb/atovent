@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   def index
-    @logs = workshop.logs.all
+    @logs = workshop.logs.order("id_str DESC").all
 
     respond_to do |format|
       format.html

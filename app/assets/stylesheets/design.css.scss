@@ -92,7 +92,28 @@ a:focus { color: #fff; background: #CEE7CF; border:0; }
       background: #4C9E4E;
     }
   }
-  h3 {  padding-top: 15px;}
+  h2 {
+    padding-bottom: 8px;
+  }
+
+  h3 {  padding-top: 15px; }
+
+  .log{
+    padding: 8px;
+    margin-top: 4px;
+    border: 2px dotted #4C9E4E;
+    width: 600px;
+    height: 80px;
+    clear: both;
+    img {
+      float: left;
+    }
+    p{
+      float: left;
+      padding-left: 10px;
+      width: 520px;
+    }
+  }
 }
 
 #bottom {

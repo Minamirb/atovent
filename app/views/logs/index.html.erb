@@ -1,24 +1,9 @@
-<h1>Listing logs</h1>
-
-<table>
-  <tr>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h2><%= @workshop.name %></h2>
 
 <% @logs.each do |log| %>
   <% workshop = log.workshop %>
-  <tr>
-    <td><%= log.content %></td>
-    <td><%= link_to 'Show', [workshop, log] %></td>
-    <td><%= link_to 'Edit', edit_workshop_log_path(workshop, log) %></td>
-    <td><%= link_to 'Destroy', [workshop, log], confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <div class="log">
+    <%= image_tag log.user_icon_url %>
+    <p><%= log.text %></p>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Log', new_workshop_log_path(@workshop) %>
