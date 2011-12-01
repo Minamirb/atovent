@@ -40,7 +40,12 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    @page = Page.new(params[:page])
+    @log = Log.find(params[:id])
+    get_url(@log) do |url|
+      obj = Uric::URI.new(url)
+      page = Page.new(:title => obj.title, :host => obj.host, :url => obj.path, :type => obj.type, :page_id => @log.id, :workshop_id => @log.workshop_id)
+      page.save
+    end
 
     respond_to do |format|
       if @page.save
@@ -50,6 +55,13 @@ class PagesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @page.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def get_url(log)
+    urls = URI.extract(log.content)
+    urls.each do |url|
+      yield url
     end
   end
 
