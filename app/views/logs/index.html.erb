@@ -1,5 +1,5 @@
 <h2><%= @workshop.name %></h2>
-
+<div id="logs">
 <% @logs.each do |log| %>
   <% workshop = log.workshop %>
   <div class="log">
@@ -7,3 +7,4 @@
     <p><%= log.text %></p>
   </div>
 <% end %>
+</div>
