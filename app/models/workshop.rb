@@ -1,5 +1,8 @@
 class Workshop < ActiveRecord::Base
   has_many :logs
+  has_one :page
+  has_one :tag, :through => :tagging
+  has_one :tagging
 
   def extract_tweets
     tweets = Twitter.new.search(hashtag)
