@@ -9,4 +9,10 @@ two:
   workshop: two
 
 three:
-  content: http://t.co/X87gPn7b 
+  content: URLが１つ含まれているテキスト http://t.co/X87gPn7b 
+
+four:
+  content: URLが複数含まれているテキスト http://t.co/mtJUAVSe http://t.co/X87gPn7b
+
+five:
+  content: URLが含まれないテキスト
