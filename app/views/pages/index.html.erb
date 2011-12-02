@@ -1,6 +1,6 @@
 <h1 id="pages">Listing all pages</h1>
-<% @workshop_pages = @pages.group_by{|workshop| workshop.to_param} %>
-<% @workshop_pages.each do |workshop, workshop_pages| %>
+<% workshops = @pages.group_by{|workshop| workshop.to_param} %>
+<% workshops.each do |workshop, workshop_pages| %>
   <%= render :partial => 'workshop', :locals => {:workshop_pages => workshop_pages} %>
 <% end %>
 

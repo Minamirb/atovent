@@ -13,11 +13,11 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @page = Page.find(params[:id])
+    workshop_pages = Page.find(:all, :conditions => ["workshop_id=?", params[:id]])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @page }
+      format.html { render :show, :locals => {:workshop_pages => workshop_pages} }
+      format.json { render json: workshop_pages }
     end
   end
 
