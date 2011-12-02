@@ -13,11 +13,11 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @page = Page.find(params[:id])
+    workshop_pages = Page.find(:all, :conditions => ["workshop_id=?", params[:id]])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @page }
+      format.html { render :show, :locals => {:workshop_pages => workshop_pages} }
+      format.json { render json: workshop_pages }
     end
   end
 
@@ -40,16 +40,25 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    @page = Page.new(params[:page])
+    log = Log.find(params[:id])
+    created = []
+    get_url(log) do |url|
+      obj = Uric::URI.new(url)
+      page = Page.new(:title => obj.title, :host => obj.host, :url => obj.path, :type => obj.type, :log_id => log.to_param, :workshop_id => log.workshop_id)
+      page.save
+      created << page
+    end
 
     respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render json: @page, status: :created, location: @page }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to :action => :index}
+      format.json { render json: created, status: :created, location: :pages }
+    end
+  end
+
+  def get_url(log)
+    urls = URI.extract(log.content)
+    urls.each do |url|
+      yield url
     end
   end
 

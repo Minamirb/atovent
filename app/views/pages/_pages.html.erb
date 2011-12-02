@@ -1,0 +1,15 @@
+<div id="type">
+  <% if type == "" then type = "WebPage" end %>
+  <div id="type_title"><%= type %></div>
+  <% pages.each do |page| %>
+    <div id="pages_area">
+      <div id="page_container">
+        <div id="page_eyecatch">
+          <div id="page_title"><%= link_to page.title, page.url %></div>
+          <div id="page_host"><%= page.host %></div>
+        </div>
+        <div id="page_remove"><%= button_to 'remove', page, confirm: 'Are you sure?', method: :delete %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
