@@ -4,6 +4,15 @@ class Workshop < ActiveRecord::Base
   has_one :tag, :through => :tagging
   has_one :tagging
 
+  # TODO write test
+  def create_tag w
+    tag = Tag.find_by_name(w.hashtag)
+    if tag.nil?
+      tag = Tag.create(:name => w.hashtag)
+    end
+    w.tag = tag
+  end
+
   def extract_tweets
     tweets = Atovent::Twitter.new.search(hashtag)
     tweets.each do |tweet|
@@ -13,6 +22,10 @@ class Workshop < ActiveRecord::Base
   handle_asynchronously :extract_tweets
 
   after_create do |w|
+    unless w.hashtag.empty?
+      create_tag w
+    end
+
     w.extract_tweets if w.hashtag.present?
   end
 end
