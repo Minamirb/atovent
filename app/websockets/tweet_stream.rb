@@ -2,13 +2,15 @@ require 'rack/websocket'
 class TweetStream < Rack::WebSocket::Application
   def initialize(options = {})
     super
+    @crawlers = {}
   end
 
   def on_open(env)
     hashtag =  env['PATH_INFO'].gsub('/', '')
     @channel = EM::Channel.new
     @sid = @channel.subscribe{|msg| send_data msg }
-    TwitterCrawler.new(hashtag, @channel)
+    crawler = @crawlers[hashtag] ||= TwitterCrawler.new(hashtag)
+    crawler.channels << @channel
     log("Client connected for #{hashtag}")
   end
 
