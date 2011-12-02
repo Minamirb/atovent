@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-require File.expand_path('../crawler_helper', __FILE__)
 class TwitterCrawler
-  def self.run(track=nil)
+  def initialize(track=nil)
     raise if track.nil?
     @track = track
     EventMachine::run {

@@ -3,6 +3,7 @@
 <head>
   <title>Atovent</title>
   <%= stylesheet_link_tag    "application" %>
+  <%= javascript_tag 'ivars = ' + assigns.select{|k, v| k != '_routes' }.to_json %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>

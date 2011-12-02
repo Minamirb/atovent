@@ -8,6 +8,7 @@ gem 'delayed_job'
 gem 'rubytter'
 gem 'jquery-rails'
 gem 'twitter-stream'
+gem 'websocket-rack'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
