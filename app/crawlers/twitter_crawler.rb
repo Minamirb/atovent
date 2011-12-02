@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-require File.expand_path('../crawler_helper', __FILE__)
 class TwitterCrawler
-  def self.run(track=nil)
+  attr_accessor :channels
+  def initialize(track)
     raise if track.nil?
+    @channels = []
     @track = track
     EventMachine::run {
       stream = Twitter::JSONStream.connect(
+#         :path    => "/1/statuses/sample.json",
         :path    => URI.encode("/1/statuses/filter.json?track=#{track}"),
         :ssl     => true,
         :port    => 443,
@@ -16,18 +18,22 @@ class TwitterCrawler
           :access_secret   => OAUTH[:twitter][:access_token_secret]})
 
       stream.each_item do |item|
-        require 'pp'
         log = HashWithIndifferentAccess.new(ActiveSupport::JSON.decode(item))
-        p Log.create(:id_str => log[:id_str], :text => log[:text], :user_id_str =>log[:user], :user_icon_url => log[:user][:profile_image_url_https], :track => @track )
+        log = Log.new(:id_str => log[:id_str], :text => log[:text], :user_id_str =>log[:user], :user_icon_url => log[:user][:profile_image_url_https], :track => @track )
+        #log.save
+        puts "--"
+        p track
+        p @channels
+        puts "--"
+        @channels.map{|channel| channel.push log.to_json }
       end
 
       stream.on_error do |message|
-        p message
+        Rails.logger.info message
       end
 
       stream.on_max_reconnects do |timeout, retries|
-        p timeout
-        p retries
+        Rails.logger.info "#{timeout}: #{retries}"
       end
     }
   end

@@ -1,4 +1,4 @@
-class Twitter < OAuthRubytter
+class Atovent::Twitter < OAuthRubytter
   def initialize
     oauth = OAUTH[:twitter]
     consumer = ::OAuth::Consumer.new(oauth[:consumer_key], oauth[:consumer_secret], :site => 'http://api.twitter.com')

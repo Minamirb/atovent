@@ -15,7 +15,7 @@ class WorkshopTest < ActiveSupport::TestCase
 
   test "#extract_tweets" do
     hashtag = '#minamirb'
-    url = Twitter.new.instance_variable_get(:@search_host) + "/search.json?q=#{URI.encode(hashtag)}"
+    url = Atovent::Twitter.new.instance_variable_get(:@search_host) + "/search.json?q=#{URI.encode(hashtag)}"
     stub_request(:get, url).to_return(:body => fixture_text('minamirb_tweets'))
     workshop = Workshop.create(:hashtag => hashtag)
     assert_difference 'Log.count', +15 do

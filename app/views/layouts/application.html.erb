@@ -3,6 +3,8 @@
 <head>
   <title>Atovent</title>
   <%= stylesheet_link_tag    "application" %>
+  <%= javascript_tag 'var ivars = ' + assigns.select{|k, v| k != '_routes' }.to_json %>
+  <%= javascript_tag 'WEB_SOCKET_SWF_LOCATION = "/WebSocketMain.swf";' %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,7 +13,7 @@
   <div id="header">
     <div id="nav">
       <ul>
-        <li class="active"><a href="">Home</a></li>
+        <li class="active"><%= link_to('Home', workshops_path) %></li>
         <li><a href="">About</a></li>
         <li><a href="">Products</a></li>
         <li><a href="">Services</a></li>

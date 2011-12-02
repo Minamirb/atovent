@@ -6,6 +6,7 @@ Atovent::Application.routes.draw do
     resources :logs
   end
   root :to => 'workshops#index'
+  mount TweetStream.new, :at => "stream"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
