@@ -27,5 +27,5 @@ end
 group :development do
   gem 'hirb'
   gem 'hirb-unicode'
-  gem 'webmock'
+  gem 'webmock', :require => false
 end
