@@ -4,30 +4,7 @@ class PagesControllerTest < ActionController::TestCase
   setup do
     @page = pages('http://t.co/X87gPn7b')
     @log = logs('three')
-    stub_request(:get, "http://t.co/X87gPn7b").
-  with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-  to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, "http://t.co/X87gPn7b").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-          to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, "http://t.co/X87gPn7b").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-          to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, "http://t.co/X87gPn7b").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-          to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, "http://t.co/X87gPn7b").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-          to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, "http://t.co/X87gPn7b").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-          to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, "http://t.co/X87gPn7b").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-          to_return(:status => 200, :body => "", :headers => {})
-    stub_request(:get, "http://t.co/X87gPn7b").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Charset'=>'ISO-8859-1,utf-8;q=0.7,*;q=0.7', 'Accept-Encoding'=>'gzip,deflate,identity', 'Accept-Language'=>'en-us,en;q=0.5', 'Connection'=>'keep-alive', 'Host'=>'t.co', 'Keep-Alive'=>'300', 'User-Agent'=>'Mechanize/2.0.1 Ruby/1.9.2p290 (http://github.com/tenderlove/mechanize/)'}).
-          to_return(:status => 200, :body => "", :headers => {})
+    stub_request(:get, "http://t.co/X87gPn7b").to_return(:body => '')
   end
 
   test "should get index" do
@@ -46,7 +23,7 @@ class PagesControllerTest < ActionController::TestCase
       post :create, id: @log.id
     end
 
-    assert_redirected_to page_path(assigns(:page))
+    assert_redirected_to :pages
   end
 
   test "should show page" do

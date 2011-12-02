@@ -40,21 +40,18 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    @log = Log.find(params[:id])
-    get_url(@log) do |url|
+    log = Log.find(params[:id])
+    created = []
+    get_url(log) do |url|
       obj = Uric::URI.new(url)
-      page = Page.new(:title => obj.title, :host => obj.host, :url => obj.path, :type => obj.type, :page_id => @log.id, :workshop_id => @log.workshop_id)
+      page = Page.new(:title => obj.title, :host => obj.host, :url => obj.path, :type => obj.type, :log_id => log.to_param, :workshop_id => log.workshop_id)
       page.save
+      created << page
     end
 
     respond_to do |format|
-      if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render json: @page, status: :created, location: @page }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to :action => :index}
+      format.json { render json: created, status: :created, location: :pages }
     end
   end
 
