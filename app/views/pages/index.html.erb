@@ -1,20 +1,6 @@
-<h1>Listing pages</h1>
-<% @grouped_pages = @pages.group_by{|page| page.type} %>
-<% @grouped_pages.each do |type, pages| %>
-  <div class="pagetype">
-  <% if type == "" then type = "WebPage" end %>
-  <h2><%= type %></h2>
-  <% pages.each do |page| %>
-    <div id="pages_area">
-      <div id="page_container">
-        <div id="page_eyecatch">
-          <div id="page_title"><%= link_to page.title, page.url %></div>
-          <div id="page_host"><%= page.host %></div>
-        </div>
-        <div id="page_remove"><%= button_to 'remove', page, confirm: 'Are you sure?', method: :delete %></div>
-      </div>
-    </div>
-  <% end %>
-  </div>
+<h1 id="pages">Listing all pages</h1>
+<% workshops = @pages.group_by{|workshop| workshop.to_param} %>
+<% workshops.each do |workshop, workshop_pages| %>
+  <%= render :partial => 'workshop', :locals => {:workshop_pages => workshop_pages} %>
 <% end %>
 

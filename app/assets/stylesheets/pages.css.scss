@@ -8,7 +8,6 @@ color: gray;
 } 
 
 #pages_area {
-  width: 80%;
 }
 
 #page_container {
@@ -38,4 +37,27 @@ margin-left: 3px;
 .button_to {
   margin-top: 7px;
   margin-left: 5px;
+}
+
+#workshop {
+margin-top: 8px;
+}
+
+#type {
+margin-top: 3px;
+margin-left: 10px;
+}
+
+#workshop_title {
+font-family: 'Trebuchet MS', Verdana, Arial, sans-serif;
+color: #4C9E4E;
+padding: 2px 0;
+font-size: 1.5em;
+}
+
+#type_title {
+font-family: 'Trebuchet MS', Verdana, Arial, sans-serif;
+color: #4C9E4E;
+padding: 2px 0;
+font-size: 1.0em;
 }

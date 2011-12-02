@@ -3,6 +3,11 @@ require 'test_helper'
 class PagesControllerTest < ActionController::TestCase
   setup do
     @page = pages('http://t.co/X87gPn7b')
+    @log = logs('three')
+    @log_many_url = logs('four')
+    @log_no_url = logs('five')
+    stub_request(:get, "http://t.co/X87gPn7b").to_return(:body => '')
+    stub_request(:get, "http://t.co/mtJUAVSe").to_return(:body => '')
   end
 
   test "should get index" do
@@ -18,10 +23,26 @@ class PagesControllerTest < ActionController::TestCase
 
   test "should create page" do
     assert_difference('Page.count') do
-      post :create, page: @page.attributes
+      post :create, id: @log.id
     end
 
-    assert_redirected_to page_path(assigns(:page))
+    assert_redirected_to :pages
+  end
+
+  test "should create pages from many url" do
+    assert_difference('Page.count', +2) do
+      post :create, id: @log_many_url.id
+    end
+
+    assert_redirected_to :pages
+  end
+
+  test "should not create page" do
+    assert_no_difference('Page.count') do
+      post :create, id: @log_no_url.id
+    end
+
+    assert_redirected_to :pages
   end
 
   test "should show page" do

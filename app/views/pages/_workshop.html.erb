@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<% grouped_pages = workshop_pages.group_by{|page| page.type} %>
+<% @grouped_pages = workshop_pages.group_by{|page| page.type} %>
 <div id="workshop">
   <div id="workshop_title">Workshop</div>
-  <% grouped_pages.each do |type, pages| %>
+  <% @grouped_pages.each do |type, pages| %>
     <%= render :partial => 'pages', :locals => {:type => type, :pages => pages} %>
   <% end %>
 </div>
