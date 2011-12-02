@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 class TwitterCrawler
-  def initialize(track, channel=nil)
+  attr_accessor :channels
+  def initialize(track)
     raise if track.nil?
+    @channels = []
     @track = track
     EventMachine::run {
       stream = Twitter::JSONStream.connect(
@@ -19,7 +21,11 @@ class TwitterCrawler
         log = HashWithIndifferentAccess.new(ActiveSupport::JSON.decode(item))
         log = Log.new(:id_str => log[:id_str], :text => log[:text], :user_id_str =>log[:user], :user_icon_url => log[:user][:profile_image_url_https], :track => @track )
         #log.save
-        channel.push log.to_json if channel
+        puts "--"
+        p track
+        p @channels
+        puts "--"
+        @channels.map{|channel| channel.push log.to_json }
       end
 
       stream.on_error do |message|
