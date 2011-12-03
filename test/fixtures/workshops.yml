@@ -1,11 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
-  name: MyString
-  date_on: 2011-11-26
-  hashtag: MyString
+  name: テスト勉強会
+  date_on: 2011-11-11
+  hashtag: test
 
 two:
-  name: MyString
-  date_on: 2011-11-26
-  hashtag: MyString
+  name: Minami.rb 第9回勉強会
+  date_on: 2011-10-02
+  hashtag: minamirb

@@ -1,18 +1,24 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
-  content: MyString
+  content: テスト駆動開発入門 http://www.slideshare.net/yalab/ss-6749458
+  user_icon_url: http://a2.twimg.com/profile_images/1197007336/twitter_bigger.png
   workshop: one
 
 two:
-  content: MyString
+  content: http://slidesha.re/sRA9hK
+  user_icon_url: http://a2.twimg.com/profile_images/1197007336/twitter_bigger.png
   workshop: two
 
 three:
-  content: URLが１つ含まれているテキスト http://t.co/X87gPn7b 
+  content: URLが１つ含まれているテキスト http://t.co/X87gPn7b
+  user_icon_url: http://a2.twimg.com/profile_images/1197007336/twitter_bigger.png
+  workshop: one
 
 four:
   content: URLが複数含まれているテキスト http://t.co/mtJUAVSe http://t.co/X87gPn7b
+  user_icon_url: http://a2.twimg.com/profile_images/1197007336/twitter_bigger.png
+  workshop: one
 
 five:
   content: URLが含まれないテキスト
+  user_icon_url: http://a2.twimg.com/profile_images/1197007336/twitter_bigger.png
+  workshop: one
