@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
   def index
     @logs = workshop.logs.order("id_str DESC").all
-
+    @page = Page.new
     respond_to do |format|
       format.html
       format.json { render json: @logs }

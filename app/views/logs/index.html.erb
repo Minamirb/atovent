@@ -5,6 +5,12 @@
   <div class="log">
     <%= image_tag log.user_icon_url %>
     <p><%= log.content %></p>
+    <div>
+    <%= form_for(@page) do |f| %>
+      <%= hidden_field_tag :id, log.id %>
+      <%= f.submit '保存' %>
+    <% end %>
+    </div>
   </div>
 <% end %>
 </div>
