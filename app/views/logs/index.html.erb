@@ -1,4 +1,7 @@
 <h2><%= @workshop.name %></h2>
+<%= form_for(@page) do |f| %>
+  <%= hidden_field_tag :id %>
+<% end %>
 <div id="logs">
 <% @logs.each do |log| %>
   <% workshop = log.workshop %>
@@ -6,10 +9,7 @@
     <%= image_tag log.user_icon_url %>
     <p><%= log.content %></p>
     <div>
-    <%= form_for(@page) do |f| %>
-      <%= hidden_field_tag :id, log.id %>
-      <%= f.submit '保存' %>
-    <% end %>
+      <%= button_tag '保存', :id => "#{log.id}", :class => 'log_regist_button' %>
     </div>
   </div>
 <% end %>
