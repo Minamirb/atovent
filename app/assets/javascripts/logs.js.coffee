@@ -5,6 +5,6 @@ if location.pathname.match(/^\/workshops\/\d+\/logs/)
       json = $.parseJSON(m.data)
       img = $('<img>').attr('src', json.user_icon_url)
       img.on 'load', ->
-        $("#logs").prepend $("<div>").attr('class', 'log').append(img).append($('<p>').text(json.text))
+        $("#logs").prepend $("<div>").attr('class', 'log').append(img).append($('<p>').text(json.content))
 
 

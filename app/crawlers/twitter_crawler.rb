@@ -19,12 +19,8 @@ class TwitterCrawler
 
       stream.each_item do |item|
         log = HashWithIndifferentAccess.new(ActiveSupport::JSON.decode(item))
-        log = Log.new(:id_str => log[:id_str], :text => log[:text], :user_id_str =>log[:user], :user_icon_url => log[:user][:profile_image_url_https], :track => @track )
+        log = Log.new(:id_str => log[:id_str], :content => log[:text], :user_id_str =>log[:user], :user_icon_url => log[:user][:profile_image_url_https], :track => @track )
         #log.save
-        puts "--"
-        p track
-        p @channels
-        puts "--"
         @channels.map{|channel| channel.push log.to_json }
       end
 
