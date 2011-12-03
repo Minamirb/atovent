@@ -6,12 +6,12 @@ class TweetStream < Rack::WebSocket::Application
   end
 
   def on_open(env)
-    hashtag =  env['PATH_INFO'].gsub('/', '')
+    workshop_id =  env['PATH_INFO'].gsub('/', '')
     @channel = EM::Channel.new
     @sid = @channel.subscribe{|msg| send_data msg }
-    crawler = @crawlers[hashtag] ||= TwitterCrawler.new(hashtag)
+    crawler = @crawlers[workshop_id] ||= TwitterCrawler.new(workshop_id)
     crawler.channels << @channel
-    log("Client connected for #{hashtag}")
+    log("Client connected for workshop id:#{workshop_id}")
   end
 
   def on_message(env, msg)
